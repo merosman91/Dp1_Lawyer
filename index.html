@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المحامي السوداني - المنصة القانونية المتكاملة</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1a3a2a;
+            --secondary-color: #c19a6b;
+            --accent-color: #8e1c1c;
+            --light-color: #f8f5f0;
+            --dark-color: #2c2c2c;
+            --gray-color: #6c757d;
+            --success-color: #28a745;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* التصميم للشريط العلوي */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+        
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* قسم الهيرو */
+        .hero {
+            background: linear-gradient(rgba(26, 58, 42, 0.8), rgba(26, 58, 42, 0.8)), url('https://placehold.co/1200x600/1a3a2a/ffffff?text=المنصة+القانونية+السودانية') no-repeat center center/cover;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #b08960;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+        
+        /* الأقسام الرئيسية */
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 10px auto;
+        }
+        
+        /* قسم المميزات */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        /* مكتبة القوانين */
+        .laws-library {
+            background-color: #f9f9f9;
+        }
+        
+        .search-box {
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .search-box input {
+            padding: 0.8rem 1rem;
+            width: 60%;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+        }
+        
+        .search-box button {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+        
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .category-btn {
+            padding: 0.5rem 1rem;
+            background-color: white;
+            border: 1px solid var(--primary-color);
+            border-radius: 20px;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .laws-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .law-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .law-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .law-content {
+            padding: 1.5rem;
+        }
+        
+        .law-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .law-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--gray-color);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        
+        /* بنك النماذج */
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .template-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            text-align: center;
+            padding: 1.5rem;
+        }
+        
+        .template-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .template-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        /* الأدوات */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .tool-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 2rem;
+        }
+        
+        .calculator {
+            margin-top: 1rem;
+        }
+        
+        .calculator input, .calculator select {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .calculator button {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .result {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        /* التذييل */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: var(--secondary-color);
+            margin-top: 0.5rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+        }
+        
+        /* التجاوب مع الشاشات المختلفة */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .search-box input {
+                width: 70%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- الرأس -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-img">ش</div>
+                <h1>المحامي السوداني</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">الرئيسية</a></li>
+                    <li><a href="#">مكتبة القوانين</a></li>
+                    <li><a href="#">النماذج القانونية</a></li>
+                    <li><a href="#">الأدوات</a></li>
+                    <li><a href="#">المدونة</a></li>
+                    <li><a href="#">اتصل بنا</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- قسم البطل -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h2>المنصة القانونية المتكاملة للمحامي السوداني</h2>
+            <p>جميع ما تحتاجه من قوانين، نماذج، أدوات ومستندات قانونية في مكان واحد</p>
+            <a href="#library" class="btn">استكشف المكتبة القانونية</a>
+        </div>
+    </section>
+
+    <!-- قسم المميزات -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">مميزات المنصة</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>مكتبة القوانين</h3>
+                    <p>وصول سهل إلى جميع القوانين السودانية والدساتير والتعديلات الحديثة</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>بنك النماذج</h3>
+                    <p>مجموعة شاملة من النماذج القانونية الجاهزة للاستخدام والتعديل</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>أدوات قانونية</h3>
+                    <p>أدوات حسابية لتقدير الرسوم القضائية ومواعيد الجلسات والمزيد</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- مكتبة القوانين -->
+    <section id="library" class="section laws-library">
+        <div class="container">
+            <h2 class="section-title">مكتبة القوانين السودانية</h2>
+            
+            <div class="search-box">
+                <input type="text" placeholder="ابحث في القوانين والنصوص التشريعية...">
+                <button><i class="fas fa-search"></i> بحث</button>
+            </div>
+            
+            <div class="categories">
+                <button class="category-btn active">جميع التصنيفات</button>
+                <button class="category-btn">دستوري</button>
+                <button class="category-btn">مدني</button>
+                <button class="category-btn">جنائي</button>
+                <button class="category-btn">تجاري</button>
+                <button class="category-btn">أحوال شخصية</button>
+                <button class="category-btn">عقاري</button>
+            </div>
+            
+            <div class="laws-grid">
+                <div class="law-card">
+                    <div class="law-content">
+                        <h3>الدستور السوداني لسنة 2005</h3>
+                        <p>الدستور الانتقالي لجمهورية السودان الذي تم وضعه بعد اتفاقية السلام الشامل</p>
+                        <div class="law-meta">
+                            <span><i class="far fa-file-pdf"></i> PDF</span>
+                            <span>آخر تحديث: 2019</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="law-card">
+                    <div class="law-content">
+                        <h3>القانون الجنائي السوداني لسنة 1991</h3>
+                        <p>القانون المختص بتحديد الجرائم والعقوبات في السودان</p>
+                        <div class="law-meta">
+                            <span><i class="far fa-file-pdf"></i> PDF</span>
+                            <span>آخر تعديل: 2020</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="law-card">
+                    <div class="law-content">
+                        <h3>قانون الإجراءات المدنية لسنة 1983</h3>
+                        <p>القانون المنظم للإجراءات والمحاكمات المدنية في السودان</p>
+                        <div class="law-meta">
+                            <span><i class="far fa-file-pdf"></i> PDF</span>
+                            <span>آخر تعديل: 2018</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="law-card">
+                    <div class="law-content">
+                        <h3>قانون الأحوال الشخصية للمسلمين لسنة 1991</h3>
+                        <p>القانون المنظم لمسائل الزواج والطلاق والميراث للمسلمين في السودان</p>
+                        <div class="law-meta">
+                            <span><i class="far fa-file-pdf"></i> PDF</span>
+                            <span>آخر تعديل: 2015</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="law-card">
+                    <div class="law-content">
+                        <h3>قانون الشركات لسنة 1925</h3>
+                        <p>القانون المنظم لتأسيس وإدارة الشركات في السودان</p>
+                        <div class="law-meta">
+                            <span><i class="far fa-file-pdf"></i> PDF</span>
+                            <span>آخر تعديل: 2021</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="law-card">
+                    <div class="law-content">
+                        <h3>قانون العقوبات العسكري لسنة 2007</h3>
+                        <p>القانون المنظم للجرائم والعقوبات في القوات المسلحة السودانية</p>
+                        <div class="law-meta">
+                            <span><i class="far fa-file-pdf"></i> PDF</span>
+                            <span>آخر تعديل: 2019</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#" class="btn">عرض جميع القوانين</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- بنك النماذج -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">بنك النماذج القانونية</h2>
+            
+            <div class="templates-grid">
+                <div class="template-card">
+                    <div class="template-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>عقود</h3>
+                    <p>نماذج عقود متنوعة للاستخدام في مختلف المعاملات</p>
+                    <a href="#" class="btn btn-outline">تحميل النماذج</a>
+                </div>
+                
+                <div class="template-card">
+                    <div class="template-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3>لوائح دعاوى</h3>
+                    <p>نماذج لوائح دعاوى جاهزة للتقديم للمحاكم</p>
+                    <a href="#" class="btn btn-outline">تحميل النماذج</a>
+                </div>
+                
+                <div class="template-card">
+                    <div class="template-icon">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <h3>مذكرات قانونية</h3>
+                    <p>نماذج مذكرات قانونية ومستندات مرافعة</p>
+                    <a href="#" class="btn btn-outline">تحميل النماذج</a>
+                </div>
+                
+                <div class="template-card">
+                    <div class="template-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>اتفاقيات</h3>
+                    <p>نماذج اتفاقيات وتسويات ودية</p>
+                    <a href="#" class="btn btn-outline">تحميل النماذج</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- الأدوات -->
+    <section class="section" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2 class="section-title">الأدوات القانونية</h2>
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3>حساب الرسوم القضائية</h3>
+                    <p>احسب الرسوم القضائية المتوقعة لقضيتك بناءً على نوعها وقيمتها</p>
+                    <div class="calculator">
+                        <select>
+                            <option value="">اختر نوع القضية</option>
+                            <option value="civil">قضية مدنية</option>
+                            <option value="criminal">قضية جنائية</option>
+                            <option value="family">قضية أحوال شخصية</option>
+                        </select>
+                        <input type="number" placeholder="قيمة الدعوى (إن وجدت)">
+                        <button>احسب الرسوم</button>
+                        <div class="result">
+                            <p>الرسوم المتوقعة: <strong>5000 جنيه سوداني</strong></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tool-card">
+                    <h3>موعد الجلسة القادمة</h3>
+                    <p>احسب موعد الجلسة القادمة بناءً على تاريخ آخر جلسة ونوع القضية</p>
+                    <div class="calculator">
+                        <input type="date" placeholder="تاريخ آخر جلسة">
+                        <select>
+                            <option value="">اختر نوع القضية</option>
+                            <option value="urgent">قضية عاجلة</option>
+                            <option value="normal">قضية عادية</option>
+                        </select>
+                        <button>احسب الموعد</button>
+                        <div class="result">
+                            <p>موعد الجلسة القادمة: <strong>15/10/2023</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- التذييل -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>عن المنصة</h3>
+                    <p>منصة قانونية شاملة تهدف إلى تمكين المحامين和法律工作者 في السودان من خلال توفير أحدث القوانين والنماذج والأدوات القانونية.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#">الرئيسية</a></li>
+                        <li><a href="#">مكتبة القوانين</a></li>
+                        <li><a href="#">النماذج القانونية</a></li>
+                        <li><a href="#">الأدوات</a></li>
+                        <li><a href="#">المدونة القانونية</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>القوانين الأكثر تصفحاً</h3>
+                    <ul>
+                        <li><a href="#">الدستور السوداني</a></li>
+                        <li><a href="#">القانون الجنائي</a></li>
+                        <li><a href="#">قانون الإجراءات المدنية</a></li>
+                        <li><a href="#">قانون الأحوال الشخصية</a></li>
+                        <li><a href="#">قانون العمل</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>اتصل بنا</h3>
+                    <p>الخرطوم - السودان</p>
+                    <p>هاتف: 00249912345678</p>
+                    <p>بريد إلكتروني: info@sudanilawyer.com</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة © 2023 منصة المحامي السوداني</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // كود JavaScript للآلة الحاسبة
+        document.addEventListener('DOMContentLoaded', function() {
+            const calculateButtons = document.querySelectorAll('.calculator button');
+            
+            calculateButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const resultDiv = this.parentElement.querySelector('.result');
+                    resultDiv.style.display = 'block';
+                });
+            });
+            
+            // كود البحث والتصفية
+            const categoryButtons = document.querySelectorAll('.category-btn');
+            
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    categoryButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+  </html>
